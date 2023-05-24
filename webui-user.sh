@@ -10,7 +10,7 @@
 #clone_dir="stable-diffusion-webui"
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
-#export COMMANDLINE_ARGS=""
+export COMMANDLINE_ARGS="--share --autolaunch --xformers --opt-sub-quad-attention --medvram --gradio-auth sf66:sf666666"
 
 # python3 executable
 #python_cmd="python3"
@@ -47,3 +47,4 @@
 #export NO_TCMALLOC="True"
 
 ###########################################
+PATH=$PATH:/usr/sbin
