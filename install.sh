@@ -46,36 +46,31 @@ sudo apt-get install libtcmalloc-minimal4
 sudo adduser --disabled-password --gecos "" sf66
 echo "sf66:S1679616n" | sudo chpasswd
 
-# Switch to user "aa"
-su - sf66
-
-cd ~
+cd /home/sf66
 
 weget https://github.com/Godbin/stable-diffusion-webui.git
 
-cd ~/stable-diffusion-webui
+cd /home/sf66/stable-diffusion-webui
 
 rm -rf venv
-mkdir ~/stable-diffusion-webui/venv
+mkdir /home/sf66/stable-diffusion-webui/venv
 python3 -m venv venv
 
-source ~/stable-diffusion-webui/venv/bin/activate
+source /home/sf66/stable-diffusion-webui/venv/bin/activate
 
 # Find the path of the libtcmalloc.so file
 path=$(find / -name "libtcmalloc.so.4" 2>/dev/null)
 
 # Set LD_PRELOAD to preload the TCMalloc library
 if [[ -n "$path" ]]; then
-  echo "export LD_PRELOAD=$path" >> ~/.bashrc
+  echo "export LD_PRELOAD=$path" >> /home/sf66/.bashrc
   echo "LD_PRELOAD set to $path"
 else
   echo "Could not find libtcmalloc.so"
 fi
-echo 'export PATH=$PATH:/usr/sbin"' >> ~/.bashrc
+echo 'export PATH=$PATH:/usr/sbin"' >> /home/sf66/.bashrc
 
-~/.bashrc
+/home/sf66/.bashrc
 pip3 uninstall torch torchvision
 
 pip3 install torch torchvision torchaudio
-
-sh ~/webui.sh
