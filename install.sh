@@ -58,10 +58,11 @@ rm -rf venv
 mkdir /home/sf66/stable-diffusion-webui/venv
 python3 -m venv venv
 
-source /home/sf66/stable-diffusion-webui/venv/bin/activate
 
-# Find the path of the libtcmalloc.so file
 path=$(find / -name "libtcmalloc.so.4" 2>/dev/null)
+
+# Print the path to the console for debugging
+echo "Path to libtcmalloc.so.4: $path"
 
 # Set LD_PRELOAD to preload the TCMalloc library
 if [[ -n "$path" ]]; then
@@ -72,7 +73,9 @@ else
 fi
 echo 'export PATH=$PATH:/usr/sbin"' >> /home/sf66/.bashrc
 
-/home/sf66/.bashrc
+source /home/sf66/.bashrc
+source /home/sf66/stable-diffusion-webui/venv/bin/activate
+
 pip3 uninstall torch torchvision
 
 pip3 install torch torchvision torchaudio
