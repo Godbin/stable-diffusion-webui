@@ -1,4 +1,6 @@
 #!/bin/bash
+#bash <(wget -qO- https://raw.githubusercontent.com/Godbin/stable-diffusion-webui/master/install.sh)
+
 
 # Install Python 3.10.1
 sudo apt-get update
