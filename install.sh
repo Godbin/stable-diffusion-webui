@@ -48,7 +48,7 @@ echo "sf66:S1679616n" | sudo chpasswd
 
 cd /home/sf66
 
-weget https://github.com/Godbin/stable-diffusion-webui.git
+wget https://github.com/Godbin/stable-diffusion-webui.git
 
 cd /home/sf66/stable-diffusion-webui
 
