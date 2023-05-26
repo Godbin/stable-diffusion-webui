@@ -19,12 +19,12 @@ else
   ./configure --prefix=/usr/local --enable-optimizations --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
   make -j $(nproc)
   sudo make altinstall
+  alias python3=python3.10
+  pip3.10 install --user --upgrade pip
   # Check if Python 3.10 is installed
   if command -v python3.10 &>/dev/null; then
     echo "Python 3.10 installed successfully"
     # Alias python3 to python3.10
-    alias python3=python3.10
-    pip3.10 install --user --upgrade pip
   else
     echo "Python 3.10 installation failed"
   fi
