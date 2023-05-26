@@ -66,6 +66,8 @@ fi
 
 
 if [ "$(whoami)" = "sf66" ]; then
+  alias python3=python3.10
+  alias python=python3.10
   cd /home/sf66
 
   git clone https://github.com/Godbin/stable-diffusion-webui.git
