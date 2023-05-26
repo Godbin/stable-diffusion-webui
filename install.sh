@@ -51,10 +51,11 @@ git clone https://github.com/Godbin/stable-diffusion-webui.git
 
 cd /home/sf66/stable-diffusion-webui
 
-rm -rf venv
+rm -rf /home/sf66/stable-diffusion-webui/venv
 mkdir /home/sf66/stable-diffusion-webui/venv
-python3 -m venv venv
+python3 -m venv /home/sf66/stable-diffusion-webui/venv
 
+sudo chmod -R a+rw /home/sf66/stable-diffusion-webui
 
 path=$(find / -name "libtcmalloc_minimal.so.4" 2>/dev/null)
 
