@@ -87,7 +87,7 @@ if [ "$(whoami)" = "sf66" ]; then
 
   pip install clip-interrogator==0.5.4
 else
-    echo "只有特定用户可以运行该脚本。"
+    echo "只有sf66用户可以运行该脚本。"
 fi
 
 
