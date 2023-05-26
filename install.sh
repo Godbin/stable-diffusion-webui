@@ -1,13 +1,15 @@
 #!/bin/bash
 #bash <(wget -qO- https://raw.githubusercontent.com/Godbin/stable-diffusion-webui/master/install.sh)
 
+  sudo apt update
+  sudo apt install git
+
 
 # Check if Python 3.10 is already installed
 if command -v python3.10 &>/dev/null; then
   echo "Python 3.10 is already installed"
 else
   # Install dependencies
-  sudo apt update
   sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
 
   # Download and install Python 3.10.11
@@ -20,6 +22,8 @@ else
   # Check if Python 3.10 is installed
   if command -v python3.10 &>/dev/null; then
     echo "Python 3.10 installed successfully"
+    # Alias python3 to python3.10
+    alias python3=python3.10
     pip3.10 install --user --upgrade pip
   else
     echo "Python 3.10 installation failed"
@@ -27,16 +31,19 @@ else
 fi
 
 
-# Alias python3 to python3.10
-alias python3=python3.10
+
 
 sudo apt-get install libtcmalloc-minimal4
 #&& export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 
 
 # Add user "aa" with password "bb"
-sudo adduser --disabled-password --gecos "" sf66
-echo "sf66:S1679616n" | sudo chpasswd
+if id "sf66" &>/dev/null; then
+  echo "User sf66 already exists"
+else
+  sudo adduser --disabled-password --gecos "" sf66
+  echo "sf66:S1679616n" | sudo chpasswd
+fi
 
 cd /home/sf66
 
@@ -49,7 +56,7 @@ mkdir /home/sf66/stable-diffusion-webui/venv
 python3 -m venv venv
 
 
-path=$(find / -name "libtcmalloc.so.4" 2>/dev/null)
+path=$(find / -name "libtcmalloc_minimal.so.4" 2>/dev/null)
 
 # Print the path to the console for debugging
 echo "Path to libtcmalloc.so.4: $path"
