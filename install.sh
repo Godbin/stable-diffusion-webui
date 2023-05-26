@@ -76,3 +76,5 @@ source /home/sf66/stable-diffusion-webui/venv/bin/activate
 pip3 uninstall torch torchvision
 
 pip3 install torch torchvision torchaudio
+
+pip install clip-interrogator==0.5.4
