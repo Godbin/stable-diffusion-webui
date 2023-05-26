@@ -61,7 +61,7 @@ if [[ -n "$path" ]]; then
 else
   echo "Could not find libtcmalloc.so"
 fi
-echo 'export PATH=$PATH:/usr/sbin"' >> /home/sf66/.bashrc
+echo 'export PATH=$PATH:/usr/sbin' >> /home/sf66/.bashrc
 
 source /home/sf66/.bashrc
 source /home/sf66/stable-diffusion-webui/venv/bin/activate
