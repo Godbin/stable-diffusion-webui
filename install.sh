@@ -24,6 +24,9 @@ if [ "$(whoami)" = "root" ]; then
     # Check if Python 3.10 is installed
     if command -v python3.10 &>/dev/null; then
       echo "Python 3.10 installed successfully"
+      echo 'alias python3=python3.10' | sudo tee -a /etc/profile.d/custom-aliases.sh
+      echo 'alias python=python3.10' | sudo tee -a /etc/profile.d/custom-aliases.sh
+
       # Alias python3 to python3.10
     else
       echo "Python 3.10 installation failed"
@@ -76,7 +79,7 @@ if [ "$(whoami)" = "sf66" ]; then
 
   rm -rf /home/sf66/stable-diffusion-webui/venv
   mkdir /home/sf66/stable-diffusion-webui/venv
-  python3 -m venv /home/sf66/stable-diffusion-webui/venv
+  python3.10 -m venv /home/sf66/stable-diffusion-webui/venv
 
   source /home/sf66/.bashrc
   source /home/sf66/stable-diffusion-webui/venv/bin/activate
