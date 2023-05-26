@@ -3,7 +3,7 @@
 
   sudo apt update
   sudo apt install git
-
+  apt-get install python3-venv
 
 # Check if Python 3.10 is already installed
 if command -v python3.10 &>/dev/null; then
