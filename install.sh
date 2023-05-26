@@ -78,8 +78,6 @@ if [ "$(whoami)" = "sf66" ]; then
   mkdir /home/sf66/stable-diffusion-webui/venv
   python3 -m venv /home/sf66/stable-diffusion-webui/venv
 
-  sudo chmod -R a+rw /home/sf66/stable-diffusion-webui
-
   source /home/sf66/.bashrc
   source /home/sf66/stable-diffusion-webui/venv/bin/activate
 
