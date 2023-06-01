@@ -11,12 +11,13 @@ if [ "$(whoami)" = "root" ]; then
     sudo apt install git
     apt-get install python3-venv
     sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+    sudo apt-get install liblzma-dev libbz2-dev
 
     # Download and install Python 3.10.11
     wget https://www.python.org/ftp/python/3.10.11/Python-3.10.11.tgz
     tar -xf Python-3.10.*.tgz
     cd Python-3.10.*/
-    ./configure --prefix=/usr/local --enable-optimizations --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
+    ./configure --prefix=/usr/local --enable-optimizations --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib" --with-lzma
     make -j $(nproc)
     sudo make altinstall
 
